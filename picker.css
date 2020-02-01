@@ -1,33 +1,107 @@
-button{
-    width:100%;
-   }
-   .wrapper {
-     display: grid;
-     grid-template-columns: 3;
-     grid-gap: 10%;
-   }
-   .one {
-     clear: both;
-     grid-column: 1;
-     grid-row: 1;
-   }
-   .two {
-     grid-column: 2;
-     grid-row: 1;
-   }
-   .three {
-     grid-column: 3;
-     grid-row: 1;
-   }
-   .four {
-     grid-column: 1;
-     grid-row: 2;
-   }
-   .five {
-     grid-column: 2;
-     grid-row: 2;
-   }
-   .six {
-     grid-column: 3;
-     grid-row: 2;
-   }
+body {
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  color: gold;
+  height: 100vh;
+  width: 100vw;  
+  margin: 0;
+  padding: 5px;
+}
+
+.gridwrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 2.5% 5%;
+  width: 90%;
+  margin: 5%;
+  flex: 1;
+}
+
+.buttonwrapper {
+  height:75%;
+  position: relative;
+}
+
+.griditem button {
+  width:100%;
+  height:100%;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.griditem p {
+  width: 100%;
+  height: 25%;
+  text-align: center;
+}
+
+.nowplaying {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: black;
+  color:white;
+  text-align: center;
+  font-size: xx-large;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.nowplaying span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.one {
+  clear: both;
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 3;
+  grid-row: 1;
+}
+.four {
+  grid-column: 1;
+  grid-row: 2;
+}
+.five {
+  grid-column: 2;
+  grid-row: 2;
+}
+.six {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.one button {
+  background-image: url('./assets/ensemble1.jpg');
+}
+.two button {
+  background-image: url('./assets/ensemble2.jpg');
+}
+.three button {
+  background-image: url('./assets/ensemble3.jpg');
+}
+.four button {
+  background-image: url('./assets/ensemble4.jpg');
+}
+.five button {
+  background-image: url('./assets/ensemble5.jpg');
+}
+.six button {
+  background-image: url('./assets/ensemble6.jpg');
+}

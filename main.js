@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, screen, ipcRenderer, ipcMain, BrowserWindow} = require('electron')
+const {app, screen, ipcMain, BrowserWindow} = require('electron')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -8,10 +8,12 @@ let mainWindow
 
 let videoWindow
 
-function createVideoWindow() {
+function createVideoWindow(display) {
   videoWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    x: display.bounds.x,
+    y: display.bounds.y,
+    fullscreen: true,
+    frame: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
@@ -27,13 +29,11 @@ function createVideoWindow() {
   global.videoWindow = videoWindow;
 }
 
-function createWindow () {
+function createWindow (display) {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 400,
-    height: 400,
     frame: true,
-    fullscreen: false,
+    fullscreen: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
@@ -63,9 +63,16 @@ ipcMain.on('ended', () => mainWindow.webContents.send('ended'));
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
-
-app.on('ready', createVideoWindow)
+app.on('ready', () => {
+  var displays = screen.getAllDisplays();
+  
+  var primary = screen.getPrimaryDisplay();
+  
+  var secondary = displays.find(d => d.id !== primary.id)
+  
+  createWindow(primary);
+  createVideoWindow(secondary || primary);  
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
