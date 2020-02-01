@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <link rel="stylesheet" type="text/css" href="./picker.css">
+</head>
+
+<body>
+  <h1>Select a Toy</h1>
+  <div class="wrapper">
+    <div class="one">
+      <button data-video-path="./assets/ensemble1.mp4">video 1</button>
+      <p> Flexitarian jean shorts pickled small batch letterpress cray stumptown prism. </p>
+    </div>
+    <div class="two"><button data-video-path="./assets/ensemble2.mp4">video 2</button>
+      <p>Franzen health goth raclette shabby chic lo-fi VHS, pitchfork cornhole.</p>
+    </div>
+    <div class="three"><button data-video-path="./assets/ensemble3.mp4">video 3</button>
+      <p>Squid live-edge vice, migas shaman coloring book literally.</p>
+    </div>
+    <div class="four"><button data-video-path="./assets/ensemble4.mp4">video 4</button>
+      <p>Mustache roof party kinfolk helvetica locavore. Narwhal before they sold out lo-fi occupy.</p>
+    </div>
+    <div class="five"><button data-video-path="./assets/ensemble5.mp4">video 5</button>
+      <p>Flexitarian jean shorts pickled small batch letterpress cray stumptown prism.</p>
+    </div>
+    <div class="six"><button data-video-path="./assets/ensemble6.mp4">video 6</button>
+      <p>Kale chips normcore celiac synth direct trade aesthetic, umami wayfarers tofu cold-pressed.</p>
+    </div>
+  </div>
+
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+  <script src="./picker.js"></script>
+</body>
+
+</html>
