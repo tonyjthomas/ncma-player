@@ -18,16 +18,16 @@ const fadeInto = (videoPath, isResting) => {
       video.onloadedmetadata = null;
       video.onended = onLoopEnded;
     }
-  }, 500));
+  }, 300));
 
   timeouts.push(window.setTimeout(() => {
     overlay.className = "";
     overlay.classList.add("fadeOut");
-  }, 1000));
+  }, 600));
 }
 
 const onLoadedMetaData = () => {
-  timeouts.push(window.setTimeout(onVideoEnded, video.duration * 1000 - 500));
+  timeouts.push(window.setTimeout(onVideoEnded, video.duration * 1000 - 300));
 }
 
 const onVideoEnded = () => {

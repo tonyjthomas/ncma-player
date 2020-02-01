@@ -17,4 +17,7 @@ buttons.forEach(b =>
     }
 );
 
-ipcRenderer.on('ended', () => buttons.forEach(b => b.disabled = false));
+ipcRenderer.on('ended', () => buttons.forEach(b => {     
+    b.disabled = false;
+    b.nextElementSibling.style.opacity = "0";
+}));

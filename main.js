@@ -32,7 +32,7 @@ function createVideoWindow(display) {
 function createWindow (display) {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    frame: true,
+    frame: false,
     fullscreen: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
